@@ -1,155 +1,31 @@
-// variables in scss
-
-// import
-
-// we can also import the files using @import statement
-@import "index2";
-
-// :root{
-//     --color: red;
-// }
-
-$app-color: rgb(44, 214, 2);
-
-body {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  // background-color: rgb(232, 129, 3);
+@import 'variables';body {
+  background-color: $bg-color;
 }
-.card {
-  top: 50%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 5px;
-  padding: 30px;
-  width: 550px;
-}
-.card h1 {
-  font-weight: 500;
-  color: var(--color);
-  font-size: 40px;
-  font-family: monospace;
-}
-.card h1::after {
-  content: '©️';
-  font-size: 20px;
-  top: 70px;
-  position: absolute;
-  right: 36%;
-}
-button {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 30px;
-  color: red;
-  border-radius: 4px;
-  padding: 10px;
-  outline: 0;
-  border: 0;
-  cursor: pointer;
-  transition: 0.3s;
-}
-button:hover {
-    // local scope with in a specific tag or element
-    $app-color :black;
-  background: $app-color;
-  $app-color : red !global;
-  
-  color: #fff;
-}
-p{
-    color: $app-color;
-}
-
-
-// scss variables
-
-// you can store information in variables, like:
-
-// strings
-// numbers
-// colors
-// booleans
-// lists
-// nulls
-// Sass uses the $ symbol, followed by a name
-
-
-// variable declaration
-
-$myFont: Helvetica, sans-serif;
-$myColor: red;
-$myFontSize: 18px;
-$myWidth: 680px;
-
-body {
-  font-family: $myFont;
-  font-size: $myFontSize;
-  color: $myColor;
-}
-
-#container {
-  width: $myWidth;
-}
-// Using Sass !global
-
-// The default behavior for variable scope can be overridden by using the !global switch.
-
-// !global indicates that a variable is global, which means that it is accessible on all levels.
-
-$myColor: red;
-
-h1 {
-  $myColor: green !global;
-  color: $myColor;
-}
-
-p {
-  color: $myColor;
-}
-
-// nested sas values
-
+/*Nested property*/
 nav {
+  background-color: transparent;
+
   ul {
-    margin: 0;
-    padding: 0;
+    display: flex;
     list-style: none;
+    gap: 40px;
+    justify-content: center;
+    padding: 20px;
   }
-  a {
-    display: block;
-    padding: 6px 12px;
-    text-decoration: none;
+  li {
+    color: $color;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  li:hover {
+    color: rgb(255, 157, 0);
   }
 }
-.content{
-  font: {
-    family: Helvetica, sans-serif;
-    size: 18px;
-    weight: bold;
-  }
+// maths function
+p {
+  font-size: $base-font;
 }
+@debug 10 + 2;
 
 
-// mixin   in scss
-
-@mixin important-text {
-  color: red;
-  font-size: 25px;
-  font-weight: bold;
-  border: 1px solid blue;
-}
-
-//@mixin is used to throughout the website
-
-
-// we can use this mixin in the form of @include mixin_name 
-
-
-b{
-  @include important-text;
-background-color: red;
-}
